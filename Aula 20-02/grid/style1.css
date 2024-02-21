@@ -1,0 +1,25 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*Três colunas de largura igual */
+    grid-gap: 10px; /*Espaçamento entre as celulas da grade */
+}
+.grid-item{
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    text-align: center;
+    border: 2px solid black;
+}
+.grid-item1{
+    background-color: rgb(99, 12, 12);
+    padding: 20px;
+    text-align: center;
+    border: 2px solid black;
+    color: antiquewhite;
+}
+.Cabe{
+    background-color: rgb(193, 191, 212);
+    margin-bottom: 8px;
+    padding: 25px;
+    text-align: center;
+    border: 2px solid black;
+}
