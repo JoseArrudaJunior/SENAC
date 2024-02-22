@@ -1,30 +1,39 @@
-.grid-container {
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
     display: grid;
     grid-template-columns: 1fr 1fr; /*Três colunas de largura igual */
     grid-gap: 10px; /*Espaçamento entre as celulas da grade */
 }
-.grid-item{
-    background-color: rgb(192, 191, 102);
-    padding: 20px;
-    text-align: center;
-    border: 2px solid black;
-}
-.grid-item1{
+.esquerda{
+        box-sizing: left;
+        width: 20%;
+    }
+
+.direita{
+    box-sizing: border-box;
+    align-items: right;
+    }
+
+aside{
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*Três colunas de largura igual */
+    grid-gap: 10px; /*Espaçamento entre as celulas da grade */
     background-color: rgb(228, 167, 54);
     padding: 20px;
     text-align: center;
     border: 2px solid black;
     color: rgb(0, 0, 0);
 }
-.Cabe{
-    background-color: rgb(134, 243, 192);
-    margin-bottom: 8px;
-    padding: 25px;
-    text-align: center;
-    border: 2px solid black;
-}
 footer{
     background-color: rgb(134, 243, 192);
     padding: 25px;
+    text-align: left;
+}
+.esquerda{
     text-align: left;
 }
