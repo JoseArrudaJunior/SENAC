@@ -1,0 +1,19 @@
+
+
+
+
+@media screen {
+    body {
+        background-color: yellow;
+    }
+}
+@media only screen and (min-width:1080px) {
+    body {
+        background-color: red;
+    }
+}
+@media only screen and (max-width:550px) {
+    body {
+        background-color: green;
+    }
+}
