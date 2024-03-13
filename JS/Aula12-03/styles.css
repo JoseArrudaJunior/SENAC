@@ -1,0 +1,9 @@
+.cor {
+    font-size: 20px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.cor:hover {
+    color: red; /* Cor de destaque ao passar o mouse */
+}
