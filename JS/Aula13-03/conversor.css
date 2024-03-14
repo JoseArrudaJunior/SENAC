@@ -1,0 +1,47 @@
+main {
+    max-width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+    background-image: url(images.jpg);
+    background-size: contain;
+    background-position: right;
+
+}
+
+section {
+    max-width: 60%;
+    margin-bottom:5px;
+    /* Espaçamento entre as sections */
+    background-color: black;
+    padding: 1rem;
+    color: white
+}
+
+div {
+    display: flex;
+    /* Ativa o flexbox para os divs */
+    align-items: center;
+    /* Alinha verticalmente os elementos dentro do div */
+    margin-bottom: 10px;
+    /* Espaçamento entre os divs */
+}
+
+label {
+    width: 200px;
+    /* flex-basis: 200px; Define uma largura base para as labels */
+    margin-right: 10px;
+    /* Espaçamento entre a label e o input */
+}
+
+input[type="number"] {
+    flex-grow: 1;
+    /* Permite que os inputs cresçam e ocupem o espaço disponível */
+}
+
+button {
+    margin-top: 10px;
+    /* Espaçamento acima do botão */
+}
