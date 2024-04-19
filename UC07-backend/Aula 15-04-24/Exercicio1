@@ -1,0 +1,17 @@
+// Definindo as variáveis numéricas
+let num1 = 10;
+let num2 = 10;
+let num3 = 10;
+let maiorNumero;
+
+// Verificando qual é o maior número
+if (num1 >= num2 && num1 >= num3) {
+    maiorNumero = num1;
+} else if (num2 >= num1 && num2 >= num3) {
+    maiorNumero = num2;
+} else {
+    maiorNumero = num3;
+}
+
+// Apresentando o maior número
+console.log("O maior número é: " + maiorNumero);
