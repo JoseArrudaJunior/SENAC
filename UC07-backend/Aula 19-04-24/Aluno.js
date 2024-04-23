@@ -21,13 +21,23 @@ class Aluno{
     getMatricula(){
         return this.matricula;
     }
-    setDisciplina(disciplina){ //setar o valor de um atributo
-        this.disciplina = disciplina;
+    setDisciplina(disciplina){
+        this.disciplina.push(disciplina);
     }
     getDisciplina(){
-        return this.disciplina;
+        for(let i=0; i<this.disciplina.length;i++){
+            console.table(this.disciplina[i]);
     }
 
 }
+    boletim(){
+        for(let i=0; i<this.disciplina.length;i++){
+            console.log(this.disciplina[i].situacaoDisciplina());
+
+    }
+
+    }
+}
+
 
 module.exports = Aluno;
