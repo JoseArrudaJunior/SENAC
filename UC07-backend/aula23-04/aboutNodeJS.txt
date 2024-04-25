@@ -1,0 +1,29 @@
+Passo 01 - Criar uma pasta.
+Passo 02 - Abrir a pasta com o terminal do vscode.
+Passo 03 - Executar o comando npm init
+    Passo 03.1 - Configurar o projeto (terminal)
+
+Caso queira ignorar todas as perguntas vindas do passo 03.1
+-Use o seguinte comando npm init -y 
+
+Passo 04 - configurar o script de start da aplicação
+adicionar a linha "start":"node index.js" ao arquivo package.json (scripts)
+
+Passo 05 - Instalar o express -> npm install express --save
+Passo 06 - Criação do arquivo app.js que vai conter as rotas do express
+Passo 07 - reconfigurar o package.json mundando o "main": "app.js" e o "start": "node app.js"
+Passo 08 - alteração do arquivo app.js com um código hello world em express. (https://expressjs.com/pt-br/starter/hello-world.html)
+Passo 09 - Acesso a rota (npm start)
+Passo 10 - criação de novas rotas get no arquivo app.js
+
+Passos extras (para a fase de produção)
+Passo 11 - instalação do nodemon (pacote faz a reinicialização automática do servidor.)
+comando de instalação : npm install --save-dev nodemon
+Passo 12 - configurar o script de dev no package.json
+"dev": "nodemon app.js"
+Passo 13 - subir a aplicação com o nodemon (executar script dev)
+    npm run dev
+
+Passo eterno: Tenha paciência.
+
+
