@@ -1,0 +1,18 @@
+
+GET http://localhost:3000
+
+###
+
+GET http://localhost:3000/teste
+
+###
+
+GET http://localhost:3000/cadastro
+
+Content-Type: application/json
+
+{
+    "nome": "José Arruda",
+    "telefone": "84 99147-1224",
+    "Idade": "92"
+}
