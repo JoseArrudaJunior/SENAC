@@ -1,10 +1,16 @@
 class Cliente{
 
-    constructor(id, nome, cpf){
+    constructor(id,  nome, email){
+        this.id = id;
         this.nome = nome;
-        this.cpf = cpf;
-        this.id = id
+        this.email = email;
+       
     }
 
+    getCliente(email){
+        if(email == this.email){
+            return true
+        }
+    }
 }
-module.exports = Cliente
+module.exports = Cliente;

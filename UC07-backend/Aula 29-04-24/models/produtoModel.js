@@ -1,10 +1,10 @@
 class Produto{
 
-    constructor(id, nome, preco){
+    constructor(id,  nome, preco){
         this.nome = nome;
         this.preco = preco;
-        this.id = id
+        this.id = id;
     }
 
 }
-module.exports = Produto
+module.exports = Produto;
