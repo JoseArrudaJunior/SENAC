@@ -16,13 +16,15 @@ class ClienteCrontoller{
         id++;
         let cliente = new clienteModel(id, nome, email);
         listaClientes.push(cliente);
-        res.send("Dados cadastrados com sucesso!");
+        res.redirect('/cliente');
     }
 
     listarClientes(req, res){
         res.json({listaClientes})
     }
-
+    visualizarClientes(req, res){
+        res.sendFile(path.join(__dirname, '../public/html/cliente', 'listarClientes.html' ))
+    }
 }
 
 module.exports = new ClienteCrontoller();

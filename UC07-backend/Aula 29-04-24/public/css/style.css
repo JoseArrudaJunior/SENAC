@@ -75,3 +75,22 @@ main section a:hover {
 .lorem-content p {
     margin: 10px 0;
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    
+}
+form input{
+    margin-bottom: 1rem;
+    padding:0.3rem;
+}
+
+form input[type='submit']{
+    margin-top: 1rem;
+    width: 100px;
+    padding: 1rem;
+    background-color: chartreuse;
+
+}

@@ -3,38 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Cadastro de Produtos</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- Link para o arquivo CSS -->
 </head>
 <body>
     <header>
-        <header>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li>
-                        <a href="/cliente">Cliente</a>
-                    </li>
-                    <li>
-                        <a href="/produto">Produto</a>
-                    </li>
-                    <li>
-                        <a href="/fornecedor">Fornecedor</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <h1> Cadastro de Produto</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/cliente">Cliente</a>
+                </li>
+                <li>
+                    <a href="/produto">Produto</a>
+                </li>
+                <li>
+                    <a href="/fornecedor">Fornecedor</a>
+                </li>
+            </ul>
+        </nav>
     </header>
     <main>
         <section>
+            <h1> Cadastro de Produto</h1>
             <form method="post" action="/produto/cadastro">
-                <label for="nome">Nome do Produto:</label>
+                <label for="nome">Nome do produto:</label>
                 <input type="text" name="nome" id="nome">
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email">
+                <label for="preco">Preço:</label>
+                <input type="number" name="preco" id="preco">
                 <input type="submit" value="Cadastrar">
             </form>
         </section>

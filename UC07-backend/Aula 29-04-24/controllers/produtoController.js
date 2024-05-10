@@ -5,8 +5,8 @@ let listaProdutos = []
 
 class ProdutoController{
     home(req, res){
-        //res.send('Rota dos clientes');
         res.sendFile(path.join(__dirname, '../public/html/produto', 'homepageProduto.html'));
+
     }
     formCadastro(req, res){
         res.sendFile(path.join(__dirname, '../public/html/produto', 'produtoForm.html'));
@@ -18,9 +18,11 @@ class ProdutoController{
         listaProdutos.push(produto)
         res.send({"Dados gravados com sucesso!": produto});
     }
-
     listagem(req, res){
         res.json(listaProdutos)
+    }
+    visualizarProdutos(req, res){
+        res.sendFile(path.join(__dirname, '../public/html/produto', 'listarprodutos.html'));
     }
 }
 module.exports = new ProdutoController();

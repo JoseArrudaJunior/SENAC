@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    // URL do endpoint que você deseja acessar
+    const endpointUrl = 'http://localhost:3000/produto/listagem';
+    
+    // Fazendo a requisição usando fetch()
+    fetch(endpointUrl)
+      .then(response => {
+        // Verifica se a requisição foi bem-sucedida (código de status 2xx)
+        if (!response.ok) {
+          throw new Error('Erro ao carregar os dados');
+        }
+        // Converte a resposta para JSON
+        return response.json();
+      })
+      .then(data => {
+        // Manipula os dados recebidos
+        data.forEach(item => {
+          // Acessa os campos id, nome e preco de cada item
+          const id = item.id;
+          const nome = item.nome;
+          const preco = item.preco;
+          
+          // Aqui você pode fazer o que quiser com os dados, como exibir na interface do usuário
+          console.log(`ID: ${id}, Nome: ${nome}, Preço: ${preco}`);
+        });
+      })
+      .catch(error => {
+        console.error('Erro de requisição:', error);
+        // Aqui você pode lidar com erros de requisição, como exibir uma mensagem de erro na interface do usuário
+      });
+    
+    </script>
+</body>
+</html>

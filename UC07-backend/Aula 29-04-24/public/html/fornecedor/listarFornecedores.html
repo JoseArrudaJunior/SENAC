@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Fornecedores</title>
+    <link rel="stylesheet" href="../css/style.css"> <!-- Link para o arquivo CSS -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/cliente">Cliente</a>
+                </li>
+                <li>
+                    <a href="/produto">Produto</a>
+                </li>
+                <li>
+                    <a href="/fornecedor">Fornecedor</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Clientes</h1>
+
+           
+        <section class="lorem-content">
+            <ul id="listarFornecedores">
+            </ul>
+        </section>
+        <section>
+            <a href="/fornecedor/cadastro">Cadastrar novo Fornecedor</a>
+        </section> 
+
+    </main>
+        <script>
+            let lista = document.getElementById('listarFornecedores');
+            // URL do endpoint que você deseja acessar
+            const endpointUrl = 'http://localhost:3000/fornecedor/listarFornecedores';
+            // Fazendo a requisição usando fetch()
+            fetch(endpointUrl)
+            .then(response => {
+                // Verifica se a requisição foi bem-sucedida (código de status 2xx)
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar os dados');
+                }
+                // Converte a resposta para JSON
+                return response.json();
+            })
+            .then(data => {
+                // Manipula os dados recebidos
+                data.listaFornecedores.forEach(item => {
+                    let li = document.createElement('li');
+                    // Acessa os campos id, nome e preco de cada item
+                    const id = item.id;
+                    const nome = item.nome;
+                    const email = item.email; 
+                    const cnpj = item.cnpj;
+                    const endereco = item.endereco;     
+                    // Aqui você pode fazer o que quiser com os dados, como exibir na interface do usuário
+                    li.innerText = `ID: ${id}, Nome: ${nome}, Email: ${email}, CNPJ: ${cnpj}, Endereço: ${endereco} `;
+                    console.log(`ID: ${id}, Nome: ${nome}, Email: ${email}`);
+                    lista.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Erro de requisição:', error);
+                // Aqui você pode lidar com erros de requisição, como exibir uma mensagem de erro na interface do usuário
+            });
+
+        </script>
+</body>
+</html>
