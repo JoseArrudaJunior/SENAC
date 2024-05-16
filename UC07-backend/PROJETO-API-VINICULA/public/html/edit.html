@@ -3,57 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Curso</title>
+    <title>Editar Vinho</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
-        <h1>Cursos Legais</h1>
+        <h1>Vinhos Legais</h1>
     </header>
     <main>
         <section>
-                <form id="editarCurso" >
-                    <label for="name">Nome do curso:</label>
+                <form id="editarVinho" >
+                    <label for="name">Nome do vinho:</label>
                     <input type="text" name="name" id="name">
-                    <label for="description">Descrição do curso:</label>
+                    <label for="description">Descrição do vinho:</label>
                    <textarea name="description" id="description"></textarea>
-                   <input type="submit" value="Atualizar curso">
+                   <input type="submit" value="Atualizar vinho">
                 </form>
         </section>
         </main>
 
         <script>
-            let formEdit = document.getElementById('editarCurso');
-            const courseId = window.location.pathname.split('/').pop();
+            let formEdit = document.getElementById('editarVinho');
+            const vinhoId = window.location.pathname.split('/').pop();
             function carregarDados(){
-                    fetch(`/courses/${courseId}`)   
+                    fetch(`/vinhos/${vinhoId}`)   
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Erro ao carregar os dados');
                         }
                          return response.json();
                      })
-                     .then(curso =>{             
-                            document.getElementById('name').value = curso.name;
-                            document.getElementById('description').value = curso.description;       
+                     .then(vinho =>{             
+                            document.getElementById('name').value = vinho.name;
+                            document.getElementById('description').value = vinho.description;       
                      })
              }
              formEdit.addEventListener('submit', ()=>{
-                const nameCourse =   document.getElementById('name').value;
-                const descriptionCourse =  document.getElementById('description').value;
-                fetch(`/courses/${courseId}`,{
+                const nameVinho =   document.getElementById('name').value;
+                const descriptionVinho =  document.getElementById('description').value;
+                fetch(`/vinhos/${vinhoId}`,{
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        name: nameCourse,
-                        description: descriptionCourse
+                        name: nameVinho,
+                        description: descriptionVinho
                     })
                 } )
                 .then(response => response.json())
                 .then(update =>{
-                    alert('Curso atualizado!');
+                    alert('Vinho atualizado!');
                     window.location.href = '/';
                 })
                 .catch(error=> console.error ('Error:', error));

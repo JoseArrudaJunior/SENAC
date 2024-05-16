@@ -1,5 +1,5 @@
 // Importa o controlador de curso para manipular as operações relacionadas aos cursos
-const courseController = require('../controllers/courseController');
+const vinhoController = require('../controllers/vinhoController');
 
 // Importa o framework Express
 const express = require('express');
@@ -10,22 +10,22 @@ const router = express.Router();
 // Define as rotas para lidar com diferentes operações de curso
 
 // Rota para listar todos os cursos
-router.get('/courses', courseController.getAllCourses);
+router.get('/vinhos', vinhoController.getAllVinhos);
 
 // Rota para buscar um curso por ID
-router.get('/courses/:id', courseController.getCourseById);
+router.get('/vinhos/:id', vinhoController.getVinhoById);
 
 // Rota para cadastrar um novo curso
-router.post('/courses/create', courseController.createCourse);
+router.post('/vinhos/create', vinhoController.createvinho);
 
 // Rota para atualizar um curso por ID
-router.put('/courses/:id', courseController.updateCourse);
+router.put('/vinhos/:id', vinhoController.updateVinho);
 
 // Rota para deletar um curso por ID
-router.delete('/courses/:id', courseController.deleteCourse);
+router.delete('/vinhos/:id', vinhoController.deleteVinho);
 
 // Rota para renderizar o formulário de edição de um curso
-router.get('/courses/edit/:id', courseController.formEditCourse);
+router.get('/vinhos/edit/:id', vinhoController.formEditVinho);
 
 // Exporta o roteador para ser utilizado em outras partes da aplicação
 module.exports = router;

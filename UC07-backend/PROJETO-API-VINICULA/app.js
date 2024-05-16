@@ -11,7 +11,7 @@ const port = 3000;
 const path = require('path');
 
 // Importa as rotas definidas para os cursos
-const courseRoutes = require('./routes/courseRoutes'); // Importando o arquivo de rotas dos cursos
+const vinhoRoutes = require('./routes/viniculaRoutes'); // Importando o arquivo de rotas dos cursos
 
 // Configurações de middleware do Express
 
@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Usa as rotas definidas para os cursos
-app.use(courseRoutes);
+app.use(vinhoRoutes);
 
 // Rota padrão para a página inicial
 app.get('/', (req, res) => {

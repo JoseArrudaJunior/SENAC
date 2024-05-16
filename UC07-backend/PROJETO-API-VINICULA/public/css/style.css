@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+}
+
+nav ul li a:hover {
+    background-color: #fff;
+    color: #333;
+    border-color: #333;
+}
+
+main {
+    padding: 20px;
+    width: 70%; /* Define a largura */
+    margin: auto; /* Centraliza na página */
+}
+
+main section {
+    margin-top: 20px;
+}
+
+main section a {
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px; /* Tamanho mediano */
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: inline-block; /* Torna os links em linha */
+}
+
+main section a:hover {
+    background-color: #0056b3;
+}
+
+/* Conteúdo Lorem */
+.lorem-content {
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.lorem-content p {
+    margin: 10px 0;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    
+}
+form input{
+    margin-bottom: 1rem;
+    padding:0.3rem;
+}
+
+form input[type='submit']{
+    margin-top: 1rem;
+    width: 200px;
+    padding: 1rem;
+    background-color: chartreuse;
+
+}
