@@ -13,7 +13,7 @@ const router = express.Router();
 router.get('/vinhos', vinhoController.getAllVinhos);
 
 // Rota para buscar um curso por ID
-router.get('/vinhos/:id', vinhoController.getVinhoById);
+router.get('/vinhos/buscar/:id', vinhoController.getVinhoById);
 
 // Rota para cadastrar um novo curso
 router.post('/vinhos/create', vinhoController.createvinho);
@@ -26,6 +26,8 @@ router.delete('/vinhos/:id', vinhoController.deleteVinho);
 
 // Rota para renderizar o formulário de edição de um curso
 router.get('/vinhos/edit/:id', vinhoController.formEditVinho);
+
+router.get('/vinhos/cliente/', vinhoController.homecliente);
 
 // Exporta o roteador para ser utilizado em outras partes da aplicação
 module.exports = router;

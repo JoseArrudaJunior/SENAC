@@ -47,6 +47,9 @@ class VinhoController {
         const vinhoId = req.params.id; // Obtém o ID do curso dos parâmetros da solicitação
         res.sendFile(path.join(__dirname, '../public/html', 'edit.html')); // Envia o arquivo de formulário de edição HTML
     }
+    homecliente(req, res) {
+        res.sendFile(path.join(__dirname, '../public/html', 'cliente.html')); // Envia o arquivo de formulário de edição HTML
+    }
 
     // Método para atualizar um curso por ID
     updateVinho(req, res) {

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinhedo Jolimon</title>
+    <link rel="stylesheet" href="/css/stylehome.css">
+</head>
+
+<body>
+    <header>
+        <img src="/imagem/logo.png" alt="">
+        <h1>Vinhedos Jolimont</h1>
+    </header>
+    <main>
+        <aside>
+            <nav>
+
+                <ul>
+                    <li>Seleção de vinhos</li>
+                    <li>Pedidos</li>
+                    <li>Sobre</li>
+                    <li>Contato</li>
+
+                </ul>
+            </nav>
+
+        </aside>
+        <section id="catalago">
+            <!-- <img src="./background-section.jpg" alt=""> -->
+            <!-- <ul id="listagemVinhos"> -->
+            <!-- <li>
+                    name
+                    description
+                    <a href="">Editar</a>
+                    <a href="">Remover</a> -->
+            <!-- </li> -->
+            <!-- </ul> -->
+        </section>
+        <aside>
+            <nav>
+                <ul>
+                    <li>Imagens departamento</li>
+                    <li>Historico de loja</li>
+                    <li>Informações diversas</li>
+                    <li>Historico da empres</li>
+                    <li>Saiba mais/curiosidades</li>
+                </ul>
+            </nav>
+        </aside>
+
+    </main>
+    <footer>
+        <p>&copy; todos os direitos reservados</p>
+    </footer>
+    <script>
+        function exibirVinhos() {
+            let listagemVinhos = document.getElementById('catalago');
+            fetch('/vinhos')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao carregar os dados');
+                    }
+                    return response.json();
+                })
+                .then(vinhos => {
+                    vinhos.forEach(c => {
+                        let card = document.createElement('article');
+                        let titulo = document.createElement('h3');
+                        titulo.innerText = c.name;
+                        let descricao = document.createElement('p');
+                        descricao.innerText = c.description;
+                        let imagem = document.createElement('img');
+                        imagem.setAttribute("src", "/imagem/logo.png");
+
+                       card.appendChild(titulo);
+                       card.appendChild(imagem);
+                       card.appendChild(descricao);
+                        listagemVinhos.appendChild(card);
+                    });
+                });
+        }
+        exibirVinhos();
+
+    </script>
+
+
+
+</body>
+
+</html>

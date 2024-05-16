@@ -26,7 +26,7 @@
             let formEdit = document.getElementById('editarVinho');
             const vinhoId = window.location.pathname.split('/').pop();
             function carregarDados(){
-                    fetch(`/vinhos/${vinhoId}`)   
+                    fetch(`/vinhos/buscar/${vinhoId}`)   
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Erro ao carregar os dados');
