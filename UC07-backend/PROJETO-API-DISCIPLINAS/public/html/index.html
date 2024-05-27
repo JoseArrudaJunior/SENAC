@@ -1,90 +1,50 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem e cadastro de cursos</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>Cursos Legais</h1>
-    </header>
-    <main>
-        <section>
-                <form method="post" action="/courses/create">
-                    <label for="name">Nome do curso:</label>
-                    <input type="text" name="name" id="name">
-                    <label for="description">Descrição do curso:</label>
-                   <textarea name="description" id="description"></textarea>
-                   <input type="submit" value="Cadastrar curso">
-                </form>
-        </section>
-        <section>
-            <ul id="listagemCursos">
-                <!-- <li>
-                    name
-                    description
-                    <a href="">Editar</a>
-                    <a href="">Remover</a> -->
-                </li>
-            </ul>
-        </section>
-    </main>
-    <script>
-        function exibirCursos(){
-            let listagemCursos = document.getElementById('listagemCursos');
-            fetch('/courses')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao carregar os dados');
-                }
-                return response.json();
-            })
-            .then(cursos =>{
-                cursos.forEach(c => {
-                    let editar = document.createElement('button');
-                    let remover = document.createElement('button');
-                    remover.innerText = "Remover";
-                    editar.innerText = "Editar";
-                   // remover.setAttribute('onclick', removerCurso())
-                    remover.addEventListener('click',() => {
-                        removerCurso(c.id);
-                    })
-                    editar.addEventListener('click',() => {
-                        editarCurso(c.id);
-                    })
-                    let li = document.createElement('li');
-                   li.innerText = `${c.name} -  ${c.description}`;
-                   li.appendChild(editar);
-                   li.appendChild(remover);
-                   listagemCursos.appendChild(li);
-                });
-            });
-        }
-        function removerCurso(id){
-            console.log(id)
-            fetch(`/courses/${id}`, {
-                 method: 'DELETE'
-            })
-            .then(response =>{
-                if(response.ok){
-                    alert('Curso removido com sucesso');
-                    window.location.href = '/';
-                }else{
-                    alert('Curso não existe ou não pode ser deletado');
-                    console.error('Error:', response);
-                }
-            })
-            .catch(error => console.log('Error:', error));
-        }
-        
-        function editarCurso(id){
-            window.location.href = `/courses/edit/${id}`
-        }
-    
-        exibirCursos();
+<html lang="pt-BR">
 
-    </script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Cursos</title>
+</head>
+
+<body>
+  <h1>Cursos</h1>
+  <section class="courses-container">
+    <div class="getAllCourses">
+      <h2>Obter todos os cursos</h2>
+      <button id="btnGetAllCourses">Obter cursos</button>
+      <ul id="listCourses">
+      </ul>
+    </div>
+    <div class="getCourseById">
+      <h2>Obter curso por ID</h2>
+      <input type="text" id="cursoId" placeholder="ID do curso">
+      <button id="btnGetCourse">Obter curso</button>
+      <ul id="resultForId">
+      </ul>
+    </div>
+    <div class="createCourse">
+      <h2>Criar curso</h2>
+      <input type="text" id="courseName" placeholder="Nome do curso">
+      <input type="text" id="courseDescription" placeholder="Descrição do curso">
+      <button id="btnCreateCourse">Criar curso</button>
+    </div>
+    <div class="updateCourse">
+      <h2>Atualizar curso</h2>
+      <input type="text" id="courseId" placeholder="ID do curso">
+      <input type="text" id="courseNameUpdate" placeholder="Nome do curso">
+      <input type="text" id="courseDescriptionUpdate" placeholder="Descrição do curso">
+      <button id="btnUpdateCourse">Atualizar curso</button>
+    </div>
+    <div class="deleteCourse">
+      <h2>Deletar curso</h2>
+      <input type="text" id="courseIdDelete" placeholder="ID do curso">
+      <button id="btnDeleteCourse">Deletar curso</button>
+    </div>
+  </section>
+
+  <script src="../js/script.js"></script>
 </body>
+
 </html>

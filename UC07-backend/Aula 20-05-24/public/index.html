@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon</title>
+</head>
+<body>
+    
+    <input type="text" name="nomePokemon" id="nomePokemon">
+    <button onclick="buscarPokemon()">Procurar</button>
+
+    <div id="dadosPokemon">
+    </div>
+
+    <script>
+        function buscarPokemon(){
+            let dadosPokemon = document.getElementById('dadosPokemon');
+            dadosPokemon.innerHTML = '';
+
+            let nomePokemon = document.getElementById('nomePokemon').value;
+            fetch(`/quemEhEsseVelho/${nomePokemon}`)
+            .then(response =>{
+                if(!response.ok){
+                    throw new Error('Erro ao carregar os dados');
+                }
+                return response.json();
+            })
+            .then(data=>{
+                let h1 = document.createElement('h1');
+                let h3 = document.createElement('h3');
+                let img = document.createElement('img');
+                img.setAttribute('src', data.imagem)
+                h1.innerText = data.nome;
+                h3.innerText = data.peso;
+                dadosPokemon.appendChild(h1);
+                dadosPokemon.appendChild(h3);
+                dadosPokemon.appendChild(img);
+            })
+        }
+    </script>
+</body>
+
+</html>
