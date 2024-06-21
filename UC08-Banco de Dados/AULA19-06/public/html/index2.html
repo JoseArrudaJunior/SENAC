@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Videolocadora</title>
+    <link rel="stylesheet" href="./css/style2.css">
+</head>
+<body>
+    <header>
+        <h1>Videolocadora do JS</h1>
+    </header>
+    <main>
+        <section class="filmes">
+            <h2>Filmes</h2>
+            <form id="formFilme" action="/filmes/cadastro" method="post">
+                <label for="nome">Nome do Filme:</label>
+                <input type="text" name="nome" id="nome" required>
+                <label for="genero">Gênero:</label>
+                <select name="id_genero" id="genero" required></select>
+                <input type="submit" value="Cadastrar">
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Gênero</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="listaFilmes"></tbody>
+            </table>
+        </section>
+        <section class="generos">
+            <h2>Gêneros</h2>
+            <form id="formGenero" action="/generos/cadastro" method="post">
+                <label for="descricao">Nome do Gênero:</label>
+                <input type="text" name="descricao" id="descricao" required>
+                <input type="submit" value="Cadastrar">
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descrição</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="listaGeneros"></tbody>
+            </table>
+        </section>
+    </main>
+    <script src="./js/script2.js"></script>
+</body>
+</html>
