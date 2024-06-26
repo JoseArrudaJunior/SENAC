@@ -14,9 +14,9 @@ class Genero {
         });
     }
 
-    async cadastrarGenero(descricao) {
+    async cadastrarCurso(descricao) {
         return new Promise((resolve, reject) => {
-            db.query('INSERT INTO GENERO (DESCRICAO) VALUES (?)', [descricao], (error, results) => {
+            db.query('INSERT INTO CURSO (DESCRICAO) VALUES (?)', [descricao], (error, results) => {
                 if (error) {
                     console.log('Erro ao executar o script sql');
                     reject(error);

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Curso</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Cursos Legais</h1>
+    </header>
+    <main>
+        <section>
+            <form id="editarCurso">
+                <label for="name">Nome do curso:</label>
+                <input type="text" name="name" id="name">
+                <label for="description">Descrição do curso:</label>
+                <textarea name="description" id="description"></textarea>
+                <input type="submit" value="Atualizar curso">
+            </form>
+        </section>
+    </main>
+
+    <script>
+        let formEdit = document.getElementById('editarCurso');
+        const courseId = window.location.pathname.split('/').pop();
+        function carregarDados() {
+            fetch(`/courses/${courseId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao carregar os dados');
+                    }
+                    return response.json();
+                })
+                .then(curso => {
+                    document.getElementById('name').value = curso.name;
+                    document.getElementById('description').value = curso.description;
+                })
+        }
+        formEdit.addEventListener('submit', () => {
+            const nameCourse = document.getElementById('name').value;
+            const descriptionCourse = document.getElementById('description').value;
+            fetch(`/courses/${courseId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: nameCourse,
+                    description: descriptionCourse
+                })
+            })
+                .then(response => response.json())
+                .then(update => {
+                    alert('Curso atualizado!');
+                    window.location.href = '/courses';
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+
+        carregarDados();
+    </script>
+
+</body>
+
+</html>
